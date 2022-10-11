@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    #应用名称
+    name: reggie_take_out
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: root
+mybatis-plus:
+  configuration:
+
+    map-underscore-to-camel-case: true #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID #统一逐渐生成策略，ASSIGN_ID雪花，AUTO自增
+#      table-prefix: t_ //表前缀，识别实体类时自动添加前缀
+
+
+
+#自定义属性，为转存文件提供位置，方便后期修改
+reggie:
+  path: H:\img\
